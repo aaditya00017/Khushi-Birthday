@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Khushi ❤️</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<main id="birthdayApp"><div class="loading">Loading your little world… ❤️</div></main>
+<audio id="backgroundMusic" loop preload="auto">
+  <source src="audio/background.mp3" type="audio/mpeg">
+</audio>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="js/sukoon3d.js"></script>
+<script src="js/script.js"></script>
+<script>
+(async function(){
+ const files=[
+  "01-home.html",
+  "personal-video.html",
+  "02-flowers.html",
+  "03-gifts.html",
+  "04-memories.html",
+  "05-sukoon.html",
+  "06-universe.html",
+  "07-video.html",
+  "dance-intro.html",
+  "09-new-video.html",
+  "08-final.html"
+];
+ const app=document.getElementById("birthdayApp");
+ try {
+   const rs=await Promise.all(files.map(f=>fetch("slides/"+f)));
+   if(rs.some(r=>!r.ok)) throw new Error("Slide loading failed");
+   const parts=await Promise.all(rs.map(r=>r.text()));
+   app.innerHTML=parts.join("\n");
+   if(typeof window.showSection === "function") window.showSection("home");
+ } catch(e) {
+   console.error(e);
+   app.innerHTML='<section class="screen home"><div class="content"><p class="eyebrow">Setup needed</p><h2>Open this website through a local server.</h2><p>Run <b>run-website.bat</b> and open <b>http://localhost:8000</b>.</p></div></section>';
+ }
+})();
+</script>
+</body>
+</html>

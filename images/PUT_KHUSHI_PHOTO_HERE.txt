@@ -1,0 +1,1 @@
+Add Khushi's photo to this folder and name it khushi.jpg. Slide 1 already points to ../images/khushi.jpg.

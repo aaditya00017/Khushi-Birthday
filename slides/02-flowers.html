@@ -1,0 +1,618 @@
+<section id="flowers" class="screen handwritten-notes hidden">
+
+  <div class="notes-bg"></div>
+
+  <div class="notes-content">
+
+    <div class="notes-heading">
+      <div class="notes-eyebrow">A little something for you</div>
+
+      <h2>Little Notes 💌</h2>
+    </div>
+
+    <div class="notes-wall">
+
+      <!-- NOTE 1 -->
+      <div class="hand-note note-one" onclick="openNote(this)">
+        <span class="tape"></span>
+        <div class="note-pin">♡</div>
+
+        <div class="note-small">01</div>
+
+        <p>
+          Happy birthday my love....... Thank you for filling my days with happiness,
+          my heart with warmth, and my life with countless beautiful memories. I love you
+          more than words can say.
+        </p>
+
+        <span class="note-sign">— yours Adi ❤️</span>
+      </div>
+
+      <!-- NOTE 2 -->
+      <div class="hand-note note-two" onclick="openNote(this)">
+        <span class="tape"></span>
+        <div class="note-pin">♡</div>
+
+        <div class="note-small">02</div>
+
+        <p>
+        Tum ab meri zindagi ka wo hissa ban chuki ho, jise mai hamesha apne pas rakhna chahta hoon.
+         ye yaad rakhna hmlog door hoke bhi bhut paas hai.
+        </p>
+
+        <span class="note-sign">— yours forever</span>
+      </div>
+
+      <!-- NOTE 3 -->
+      <div class="hand-note note-three" onclick="openNote(this)">
+        <span class="tape"></span>
+        <div class="note-pin">♡</div>
+
+        <div class="note-small">03</div>
+
+        <p>
+        You know what is the best part of you is that you are always real to me , understand me, support me , motivates me.
+        </p>
+
+        <span class="note-sign">— your r the best 🫶🏻</span>
+      </div>
+
+      <!-- NOTE 4 -->
+      <div class="hand-note note-four" onclick="openNote(this)">
+        <span class="tape"></span>
+        <div class="note-pin">♡</div>
+
+        <div class="note-small">04</div>
+
+        <p>
+        Hamesha muskurate rahna , khush rahna , i'm always with you. Tere ek smile se mera pura din ban jata h. 
+        </p>
+        <span class="note-sign">— you only you</span>
+      </div>
+
+      <!-- NOTE 5 -->
+      <div class="hand-note note-five" onclick="openNote(this)">
+        <span class="tape"></span>
+        <div class="note-pin">♡</div>
+
+        <div class="note-small">05</div>
+
+        <p>
+         Jab bhi mai tmse baat krta hu, mera life me jo bhi kharab chl raha hota hai,
+        tere paas aate hi kuch achha lagne lagta hai, sukoon milta.
+        </p>
+
+        <span class="note-sign">— always❤️</span>
+      </div>
+
+    </div>
+
+    <div class="notes-bottom">
+
+      <p>
+        There's more and more special for you<br>
+      </p>
+
+      <button
+        class="notes-continue"
+        type="button"
+        onclick="showSection('gifts')">
+        Click here to continue →
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================
+   SLIDE 2 — HANDWRITTEN NOTES
+   ========================================= */
+
+.handwritten-notes {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,190,210,.35), transparent 28%),
+    radial-gradient(circle at 85% 80%, rgba(205,190,235,.35), transparent 30%),
+    #f8f1e8;
+  color: #513744;
+  overflow: hidden;
+  position: relative;
+}
+
+
+/* Soft paper texture */
+
+.notes-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .45;
+
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      rgba(120,90,100,.055) 32px
+    );
+}
+
+
+/* Main content */
+
+.notes-content {
+  width: min(1150px, 94vw);
+  min-height: 100vh;
+  padding: 55px 0 45px;
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Heading */
+
+.notes-heading {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.notes-eyebrow {
+  font-family: "DM Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 10px;
+  color: #b2778e;
+  margin-bottom: 12px;
+}
+
+.notes-heading h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(50px, 7vw, 82px);
+  line-height: .9;
+  color: #56364a;
+}
+
+.notes-heading p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+  line-height: 1.35;
+  color: #886878;
+  margin-top: 15px;
+}
+
+
+/* Notes wall */
+
+.notes-wall {
+  width: min(1050px, 100%);
+  height: 390px;
+  margin: 5px auto 0;
+  position: relative;
+}
+
+
+/* Individual handwritten paper */
+
+.hand-note {
+  position: absolute;
+
+  width: 225px;
+  min-height: 245px;
+
+  padding: 38px 24px 24px;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,.3),
+      rgba(255,255,255,.3)
+    ),
+    #fffdf4;
+
+  box-shadow:
+    0 18px 35px rgba(86,54,74,.16);
+
+  cursor: pointer;
+
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* Paper lines */
+
+.hand-note::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  bottom: 0;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 28px,
+      rgba(176,143,153,.12) 29px
+    );
+
+  pointer-events: none;
+}
+
+
+/* Tape */
+
+.tape {
+  position: absolute;
+
+  width: 72px;
+  height: 25px;
+
+  top: -10px;
+  left: 50%;
+
+  transform: translateX(-50%) rotate(-2deg);
+
+  background: rgba(255,205,215,.78);
+
+  box-shadow: 0 3px 7px rgba(80,50,60,.08);
+
+  z-index: 3;
+}
+
+
+/* Little heart */
+
+.note-pin {
+  position: absolute;
+  right: 17px;
+  top: 14px;
+
+  font-size: 18px;
+  color: #e27698;
+
+  z-index: 4;
+}
+
+
+/* Number */
+
+.note-small {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+
+  color: #b38b98;
+}
+
+
+/* Handwritten text */
+
+.hand-note p {
+  position: relative;
+  z-index: 2;
+
+  font-family: "Sriracha", cursive;
+
+  font-size: 21px;
+  line-height: 1.55;
+
+  color: #654555;
+
+  text-align: center;
+}
+
+
+/* Signature */
+
+.note-sign {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 20px;
+
+  font-family: "Dancing Script", cursive;
+
+  font-size: 18px;
+
+  color: #b05e7b;
+
+  text-align: right;
+}
+
+
+/* Individual positions */
+
+.note-one {
+  left: 2%;
+  top: 35px;
+  transform: rotate(-6deg);
+}
+
+.note-two {
+  left: 22%;
+  top: 95px;
+  transform: rotate(4deg);
+}
+
+.note-three {
+  left: 42%;
+  top: 18px;
+  transform: rotate(-2deg);
+}
+
+.note-four {
+  right: 18%;
+  top: 95px;
+  transform: rotate(5deg);
+}
+
+.note-five {
+  right: 1%;
+  top: 28px;
+  transform: rotate(-5deg);
+}
+
+
+/* Hover */
+
+.hand-note:hover {
+  transform:
+    translateY(-18px)
+    rotate(0deg)
+    scale(1.04);
+
+  box-shadow:
+    0 28px 50px rgba(86,54,74,.23);
+
+  z-index: 20;
+}
+
+
+/* Clicked note */
+
+.hand-note.opened {
+  transform:
+    translateY(-18px)
+    rotate(0deg)
+    scale(1.06);
+
+  box-shadow:
+    0 30px 60px rgba(86,54,74,.25);
+
+  z-index: 30;
+}
+
+
+/* Bottom */
+
+.notes-bottom {
+  text-align: center;
+  margin-top: 150px;
+  position: relative;
+  z-index: 50;
+}
+
+.notes-bottom p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #805365;
+}
+
+
+/* Continue button */
+
+.notes-continue {
+  margin-top: 10px;
+
+  border: 2px solid #56364a;
+
+  background: #d95f86;
+  color: white;
+
+  padding: 12px 25px;
+
+  border-radius: 999px;
+
+  font-family: "Sriracha", cursive;
+  font-size: 15px;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 25px rgba(217,95,134,.22);
+
+  transition: .3s ease;
+}
+
+.notes-continue:hover {
+  transform: translateY(-4px) scale(1.03);
+
+  box-shadow:
+    0 15px 30px rgba(217,95,134,.3);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media(max-width:900px) {
+
+  .notes-content {
+    padding-top: 35px;
+  }
+
+  .notes-wall {
+    height: 600px;
+  }
+
+  .hand-note {
+    width: 190px;
+    min-height: 210px;
+    padding: 32px 18px 20px;
+  }
+
+  .hand-note p {
+    font-size: 18px;
+  }
+
+  .note-one {
+    left: 2%;
+    top: 20px;
+  }
+
+  .note-two {
+    left: 28%;
+    top: 90px;
+  }
+
+  .note-three {
+    right: 2%;
+    left: auto;
+    top: 20px;
+  }
+
+  .note-four {
+    left: 14%;
+    right: auto;
+    top: 320px;
+  }
+
+  .note-five {
+    right: 12%;
+    top: 350px;
+  }
+}
+
+
+@media(max-width:600px) {
+
+  .notes-content {
+    width: 96vw;
+    padding-top: 28px;
+  }
+
+  .notes-heading {
+    margin-bottom: 5px;
+  }
+
+  .notes-heading h2 {
+    font-size: 48px;
+  }
+
+  .notes-heading p {
+    font-size: 18px;
+  }
+
+  .notes-wall {
+    height: 610px;
+    margin-top: 5px;
+  }
+
+  .hand-note {
+    width: 150px;
+    min-height: 175px;
+
+    padding:
+      27px 13px 15px;
+  }
+
+  .hand-note p {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .note-sign {
+    font-size: 15px;
+    margin-top: 12px;
+  }
+
+  .note-small {
+    font-size: 7px;
+  }
+
+  .note-pin {
+    font-size: 14px;
+    right: 10px;
+    top: 10px;
+  }
+
+  .note-one {
+    left: 0;
+    top: 10px;
+  }
+
+  .note-two {
+    left: auto;
+    right: 0;
+    top: 65px;
+  }
+
+  .note-three {
+    left: 20%;
+    right: auto;
+    top: 205px;
+  }
+
+  .note-four {
+    left: 0;
+    top: 355px;
+  }
+
+  .note-five {
+    right: 0;
+    top: 390px;
+  }
+
+  .notes-bottom {
+    margin-top: 5px;
+  }
+
+  .notes-bottom p {
+    font-size: 20px;
+  }
+
+  .notes-continue {
+    font-size: 14px;
+    padding: 10px 21px;
+  }
+}
+
+</style>
+
+
+<script>
+
+/* =========================================
+   SLIDE 2 NOTE INTERACTION
+   ========================================= */
+
+function openNote(note) {
+
+  document.querySelectorAll(".hand-note").forEach(function(item) {
+
+    if (item !== note) {
+      item.classList.remove("opened");
+    }
+
+  });
+
+  note.classList.toggle("opened");
+}
+
+</script>

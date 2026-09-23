@@ -1,0 +1,416 @@
+<section id="universe" class="screen universe hidden lyric6-screen">
+  <div class="lyric6-bg"></div>
+  <div id="lyric6Fx" class="lyric6-fx" aria-hidden="true"></div>
+
+  <div class="lyric6-top">
+    <span class="lyric6-logo">Hona Tha Pyaar</span>
+    <span class="lyric6-note">HUA MERE YAAR ❤️</span>
+  </div>
+
+  <div class="lyric6-pages" id="lyric6Pages"></div>
+  <div class="lyric6-dots" id="lyric6Dots"></div>
+
+  <div class="lyric6-player-zone">
+    <div class="lyric6-player">
+      <audio id="lyric6Audio" src="audio/Hona Tha Pyaar.mp3" preload="metadata"></audio>
+      <div class="lyric6-track-row">
+        <div class="lyric6-track-name">
+          Hona Tha Pyaar
+          <small>HUA MERE YAAR · ATIF ASLAM &amp; HADiQA KIANI</small>
+        </div>
+        <div class="lyric6-eq" id="lyric6Eq">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="lyric6-seek-row">
+        <button id="lyric6Play" type="button" aria-label="Play song">♥</button>
+        <input type="range" id="lyric6Seek" value="0" min="0" max="1000" aria-label="Song progress">
+        <span id="lyric6Time">0:00 / 0:36</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="lyric6-next" id="lyric6Next" type="button">
+    Continue to the one more video→
+  </button>
+</section>
+
+<style>
+/* =========================================================
+   SLIDE 6 — HONA THA PYAAR LYRIC VIDEO
+   All styles are scoped so Slides 1–5 stay untouched.
+   ========================================================= */
+.lyric6-screen {
+  background: linear-gradient(160deg, #2e1040 0%, #521a52 50%, #6b2450 100%);
+  overflow: hidden;
+  color: #fff4ec;
+  isolation: isolate;
+}
+
+.lyric6-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255,46,126,.28), transparent 26%),
+    radial-gradient(circle at 85% 82%, rgba(164,76,255,.28), transparent 28%),
+    radial-gradient(circle at 72% 40%, rgba(255,179,71,.12), transparent 22%);
+}
+
+.lyric6-top {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  right: 28px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.lyric6-logo {
+  font-family: "Great Vibes", cursive;
+  font-size: 30px;
+  color: #ffb3c6;
+  text-shadow: 0 0 20px rgba(255,158,199,.6);
+}
+
+.lyric6-note {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #ffd27f;
+  opacity: .8;
+}
+
+.lyric6-pages {
+  position: absolute;
+  inset: 0;
+}
+
+.lyric6-page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 65px 20px 170px;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1s ease, transform 1s ease;
+  pointer-events: none;
+}
+
+.lyric6-page.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.lyric6-image-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: min(620px, 92vw);
+  max-height: 48vh;
+}
+
+.lyric6-image {
+  width: auto;
+  height: auto;
+  max-width: min(620px, 92vw);
+  max-height: 48vh;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 16px 34px rgba(0,0,0,.5));
+  animation: lyric6Bob 5.5s ease-in-out infinite;
+}
+
+.lyric6-page.chorus .lyric6-image {
+  animation: lyric6Pulse .7s ease, lyric6Bob 5.5s ease-in-out infinite;
+}
+
+@keyframes lyric6Bob {
+  0%,100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes lyric6Pulse {
+  0%,100% { transform: scale(1); }
+  40% { transform: scale(1.08); }
+}
+
+.lyric6-status {
+  margin-top: 14px;
+  font-size: 10px;
+  color: #ffd27f;
+  letter-spacing: .5px;
+  text-shadow: 0 1px 4px rgba(0,0,0,.6);
+}
+
+.lyric6-line {
+  margin-top: 4px;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: clamp(22px, 4vw, 38px);
+  line-height: 1.7;
+  color: #fff4ec;
+  text-shadow: 0 2px 6px rgba(0,0,0,.55), 0 0 18px rgba(0,0,0,.5);
+}
+
+.lyric6-line .typed {
+  color: #ffb3c6;
+  text-shadow: 0 0 30px rgba(255,179,198,.85);
+}
+
+.lyric6-caret {
+  display: inline-block;
+  width: 3px;
+  height: .95em;
+  background: #ffd27f;
+  margin-left: 4px;
+  vertical-align: -.08em;
+  border-radius: 2px;
+  animation: lyric6Blink 1s steps(1) infinite;
+}
+
+@keyframes lyric6Blink { 50% { opacity: 0; } }
+
+.lyric6-dots {
+  position: absolute;
+  bottom: 148px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.lyric6-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  transition: all .45s ease;
+}
+
+.lyric6-dot.active {
+  background: #ffb3c6;
+  width: 22px;
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(255,179,198,.9);
+}
+
+.lyric6-player-zone {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  z-index: 6;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.lyric6-player {
+  width: min(620px, 94vw);
+  padding: 10px 16px 9px;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  background: rgba(12,5,15,.38);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(18px) saturate(1.3);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  box-shadow: 0 12px 40px rgba(0,0,0,.3);
+}
+
+.lyric6-track-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.lyric6-track-name {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 17px;
+}
+
+.lyric6-track-name small {
+  display: block;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-size: 9.5px;
+  letter-spacing: 1.5px;
+  opacity: .55;
+  margin-top: 2px;
+}
+
+.lyric6-eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 20px;
+}
+
+.lyric6-eq span {
+  width: 4px;
+  border-radius: 4px;
+  background: linear-gradient(180deg,#ffb3c6,#ff6b9d);
+  height: 40%;
+}
+
+.lyric6-eq.playing span { animation: lyric6Eq 1s ease-in-out infinite; }
+.lyric6-eq.playing span:nth-child(1) { animation-delay: 0s; }
+.lyric6-eq.playing span:nth-child(2) { animation-delay: .18s; }
+.lyric6-eq.playing span:nth-child(3) { animation-delay: .36s; }
+.lyric6-eq.playing span:nth-child(4) { animation-delay: .09s; }
+.lyric6-eq.playing span:nth-child(5) { animation-delay: .27s; }
+
+@keyframes lyric6Eq {
+  0%,100% { height: 30%; }
+  50% { height: 100%; }
+}
+
+.lyric6-seek-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#lyric6Play {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(135deg,#ff6b9d,#ff8fa8);
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0 6px 22px rgba(255,107,157,.5);
+  transition: transform .25s ease;
+}
+
+#lyric6Play:hover { transform: scale(1.1); }
+
+#lyric6Seek {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  border-radius: 5px;
+  background: rgba(255,255,255,.2);
+  outline: none;
+  cursor: pointer;
+}
+
+#lyric6Seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ffb3c6;
+  box-shadow: 0 0 12px rgba(255,179,198,.9);
+}
+
+#lyric6Seek::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border: none;
+  border-radius: 50%;
+  background: #ffb3c6;
+}
+
+#lyric6Time {
+  font-size: 11.5px;
+  color: #fff4ec;
+  opacity: .75;
+  min-width: 84px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.lyric6-next {
+  position: absolute;
+  right: 22px;
+  bottom: 165px;
+  z-index: 8;
+  border: 0;
+  border-radius: 999px;
+  padding: 11px 17px;
+  background: #ff6b9d;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(255,107,157,.35);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: .35s ease;
+}
+
+.lyric6-next.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.lyric6-heart {
+  position: absolute;
+  bottom: -30px;
+  width: 12px;
+  height: 12px;
+  background: #ff6b9d;
+  transform: rotate(45deg);
+  opacity: .35;
+  animation: lyric6Float linear forwards;
+}
+
+.lyric6-heart::before,
+.lyric6-heart::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.lyric6-heart::before { left: -6px; }
+.lyric6-heart::after { top: -6px; }
+
+@keyframes lyric6Float {
+  to { transform: translateY(-110vh) rotate(405deg); opacity: 0; }
+}
+
+@media (max-width: 760px) {
+  .lyric6-top { top: 16px; left: 16px; right: 16px; }
+  .lyric6-logo { font-size: 25px; }
+  .lyric6-note { font-size: 8px; }
+  .lyric6-page { padding: 58px 12px 158px; }
+  .lyric6-image-wrap,
+  .lyric6-image { max-width: 92vw; max-height: 39vh; }
+  .lyric6-line { font-size: clamp(19px,5.6vw,27px); }
+  .lyric6-dots { bottom: 142px; }
+  .lyric6-player-zone { height: 132px; }
+  .lyric6-player { width: 96vw; margin-bottom: 8px; }
+  .lyric6-next { right: 12px; bottom: 145px; font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+  .lyric6-page { padding: 54px 8px 150px; }
+  .lyric6-image-wrap,
+  .lyric6-image { max-width: 94vw; max-height: 34vh; }
+  .lyric6-line { font-size: clamp(18px,6vw,24px); }
+  .lyric6-track-name { font-size: 14px; }
+  .lyric6-track-name small { font-size: 7px; }
+  #lyric6Time { font-size: 10px; min-width: 72px; }
+  .lyric6-seek-row { gap: 8px; }
+  #lyric6Play { width: 40px; height: 40px; }
+}
+</style>
+
