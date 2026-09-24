@@ -3389,3 +3389,296 @@ video {
     margin-bottom: 4px;
   }
 }
+.new-video-message {
+    width: min(700px, 90vw);
+    min-height: 320px;
+    margin: 30px auto;
+    padding: 45px 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.78);
+    border: 2px solid rgba(255,105,135,0.25);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.message-heart {
+    font-size: 45px;
+    margin-bottom: 12px;
+    animation: messageHeartBeat 1.5s infinite;
+}
+
+.message-small {
+    font-size: 16px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.new-video-message h3 {
+    font-size: clamp(24px, 4vw, 36px);
+    line-height: 1.35;
+    margin: 10px 0 20px;
+}
+
+.message-main {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.message-end {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.new-video-message strong {
+    margin-top: 18px;
+    font-size: 21px;
+}
+
+@keyframes messageHeartBeat {
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@media (max-width: 600px) {
+    .new-video-message {
+        width: 88vw;
+        min-height: 300px;
+        padding: 35px 20px;
+    }
+
+    .message-main {
+        font-size: 16px;
+    }
+
+    .message-end {
+        font-size: 15px;
+    }
+}
+.new-video-message {
+    width: min(700px, 90vw);
+    min-height: 320px;
+    margin: 30px auto;
+    padding: 45px 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.78);
+    border: 2px solid rgba(255,105,135,0.25);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.message-heart {
+    font-size: 45px;
+    margin-bottom: 12px;
+    animation: messageHeartBeat 1.5s infinite;
+}
+
+.message-small {
+    font-size: 16px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.new-video-message h3 {
+    font-size: clamp(24px, 4vw, 36px);
+    line-height: 1.35;
+    margin: 10px 0 20px;
+}
+
+.message-main {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.message-end {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.new-video-message strong {
+    margin-top: 18px;
+    font-size: 21px;
+}
+
+@keyframes messageHeartBeat {
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .new-video-message {
+        width: 88vw;
+        min-height: 300px;
+        padding: 35px 20px;
+    }
+
+    .message-main {
+        font-size: 16px;
+    }
+
+    .message-end {
+        font-size: 15px;
+    }
+}
+/* =========================================
+   FINAL SLIDE - HANDWRITTEN LOVE LETTER
+========================================= */
+
+.universe-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 31px;
+    color: #8a5269;
+    margin-top: 30px;
+    line-height: 1.35;
+}
+
+
+/* Letter container */
+
+.love-letter {
+    width: min(850px, 92vw);
+    margin: 55px auto 30px;
+    text-align: left;
+}
+
+
+/* Small heading above letter */
+
+.letter-title {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    color: #8a5269;
+    margin-bottom: 18px;
+}
+
+
+/* Paper */
+
+.letter-paper {
+    position: relative;
+    width: 100%;
+    max-height: 75vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    padding: 45px 50px;
+
+    background: #fffdf8;
+    border-radius: 8px;
+
+    border: 1px solid rgba(138, 82, 105, 0.18);
+
+    box-shadow:
+        0 15px 35px rgba(86, 54, 74, 0.12),
+        0 3px 8px rgba(86, 54, 74, 0.08);
+
+    color: #5f4651;
+
+    font-family: 'Sriracha', 'Segoe Print', cursive;
+    font-size: 21px;
+    line-height: 1.9;
+}
+
+
+/* Letter paragraphs */
+
+.letter-paper p {
+    margin: 0 0 20px;
+}
+
+
+/* Signature */
+
+.letter-sign {
+    margin-top: 35px !important;
+    text-align: right;
+    font-size: 24px;
+    color: #8a5269;
+}
+
+
+/* Little paper lines */
+
+.letter-paper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 37px,
+        rgba(138, 82, 105, 0.07) 38px
+    );
+
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+
+/* Keep text above lines */
+
+.letter-paper p {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .universe-line {
+        font-size: 25px;
+    }
+
+    .love-letter {
+        width: 92vw;
+        margin-top: 40px;
+    }
+
+    .letter-title {
+        font-size: 22px;
+    }
+
+    .letter-paper {
+        padding: 30px 24px;
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    .letter-paper p:first-child {
+        font-size: 23px;
+    }
+
+    .letter-sign {
+        font-size: 21px;
+    }
+}
+/* ===== FINAL SLIDE SPACING FIX ===== */
+
+.final .final-small {
+    margin: 12px auto;
+}
+
+.final .universe-line {
+    display: none;
+}
+
+.final .love-letter {
+    margin-top: 15px;
+}
